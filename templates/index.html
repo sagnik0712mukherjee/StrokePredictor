@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login" style = "position:relative; left:80px; top:2px; background: no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+	<h1>Predict Stroke chance</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+      	 	 	 	 	 	 	 	 	
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="gender" placeholder="Gender" required="required" /> ** 1 for Male and 0 for Female...
+    	<br>
+    	<br>
+        <input type="text" name="age" placeholder="Age" required="required" />
+        <br>
+        <br>
+        <input type="text" name="hypertension" placeholder="Hypertension?" required="required" /> ** 1 for Yes and 0 for No..
+        <br>
+        <br>
+		<input type="text" name="heart_disease" placeholder="Heart Disease?" required="required" /> ** 1 for Yes and 0 for No..
+        <br>
+        <br>
+		<input type="text" name="ever_married" placeholder="Ever Married?" required="required" /> ** 1 for Yes and 0 for No..
+        <br>
+        <br>
+		<input type="text" name="work_type" placeholder="Work Type?" required="required" /> ** 0: GovtJob, 1: Children, 2: Private, 3: Self-Employed..
+        <br>
+        <br>
+		<input type="text" name="Residence_type" placeholder="Residence type??" required="required" /> ** 1 for Urban and 2 for Rural..
+        <br>
+        <br>
+		<input type="text" name="avg_glucose_level" placeholder="Glucose Average" required="required" />
+        <br>
+        <br>
+        <input type="text" name="bmi" placeholder="BMI" required="required" />
+        <br>
+        <br>
+        <input type="text" name="smoking_status" placeholder="Smokes?" required="required" /> ** 0: Unknown, 1: Formerly smoked, 2: Never smoked, 3: Smokes..
+        <br>
+        <br>
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
